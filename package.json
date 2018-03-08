@@ -1,21 +1,8 @@
 {
-  "name": "funeraria",
+  "name": "el-vals-de-los-muertos",
   "version": "1.0.0",
-  "description": "funeraria",
+  "description": "laboratorio 1",
   "main": "index.html",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ByTicos/Funeraria.git"
-  },
-  "author": "ByTicos",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ByTicos/Funeraria/issues"
-  },
-  "homepage": "https://github.com/ByTicos/Funeraria#readme",
   "devDependencies": {
     "browser-sync": "^2.23.6",
     "gulp": "^3.9.1",
@@ -33,5 +20,18 @@
     "popper.js": "^1.12.9",
     "sweetalert": "^2.1.0",
     "ui-router-page-title": "^1.0.4"
-  }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ByTicos/El-vals-de-los-muertos-segundo.git"
+  },
+  "author": "ByTicos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ByTicos/El-vals-de-los-muertos-segundo/issues"
+  },
+  "homepage": "https://github.com/ByTicos/El-vals-de-los-muertos-segundo#readme"
 }
