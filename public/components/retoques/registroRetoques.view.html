@@ -12,8 +12,8 @@
               <option ng-repeat="retoque in vm.listaRetoques" value="{{retoque}}">{{retoque.id}} {{retoque.nombre}} {{retoque.costo}}</option>
             </select>
 
-         <button class="btn btn-dark btn-lg btn-huge" type="submit" name="button">Agregar Retoque</button>
-         <button type="button" class="btn btn-danger btn-lg btn-huge" ng-click="vm.volver()">Regresar</button>
+         <button class="btn buttonall" type="submit" name="button">Agregar Retoque</button>
+         <button type="button" class="btn buttonall" ng-click="vm.volver()">Regresar</button>
 
          <p ng-repeat="retoque in vm.listaRetoques">El costo de sus servicios es ${{retoque.costo}}</p>
          

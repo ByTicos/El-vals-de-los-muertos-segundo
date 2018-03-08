@@ -25,6 +25,7 @@
       getMuerto : _getMuerto,
       getAllMuertos: _getAllMuertos,
       addFiesta: _addFiesta,
+      addRetoques: _addRetoques,
       eliminarUsuario: _eliminarUsuario,
       activarUsuario: _activarUsuario
     }
@@ -66,13 +67,16 @@
               let objFiestaTemporal = new Fiestas (objFiesta.fecha, objFiesta.duracion, objFiesta.costo);
 
               objMuertoTemporal.registrarFiesta(objFiestaTemporal);
+
+              objMuertoTemporal.forEach(objRetoque =>{
+
+                let objRetoqueTemporal = new Retoques (objRetoque.id, objRetoque.nombre, objRetoque.costo);
+
+                objMuertoTemporal.agregarRetoqueaMuerto(objRetoqueTemporal);
+              })
             })
 
             objUsuarios.registrarMuerto(objMuertoTemporal);
-
-
-
-          
 
           })
           listaUsuarios.push(objUsuarios);
@@ -176,6 +180,32 @@ function _getAllMuertos(){
     actualizarLocal(listaUsuarios);
     console.log(listaUsuarios);
     return fiesta;
+  }
+
+  function _addRetoques(pMuerto, pRetoque){
+    let listaUsuarios = _getUsuarios();
+    let listaVehiculos = [];
+    let listaRetoques = {};
+    
+    for(let i = 0; i < listaUsuarios.length; i++){
+      
+      
+      for(let j=0 ;j < listaUsuarios[i].obtenerMuertos().length; j++){
+       
+        
+        if(JSON.stringify(listaUsuarios[i].obtenerMuertos()[j].obtenerInfoMuerto()) == JSON.stringify(pMuerto.obtenerInfoMuerto())){
+
+         
+          listaUsuarios[i].obtenerMuertos()[j].agregarRetoqueaMuerto(pRetoque);
+          listaRetoques = listaUsuarios[i].obtenerMuertos()[j];
+          console.log('Registro retoque completo', listaUsuarios[i].obtenerMuertos()[j]);
+        }
+      }
+    }
+    console.log(listaUsuarios);
+    actualizarLocal(listaUsuarios);
+    console.log(listaUsuarios);
+    return listaRetoques;
   }
 
   

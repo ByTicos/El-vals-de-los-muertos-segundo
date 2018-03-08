@@ -60,11 +60,17 @@ class Muerto{
     this.entierro=pEntierro;
   }
 
+  agregarRetoqueaMuerto(pRetoque){
+    this.listaRetoques.push(pRetoque);
+  }
+
+  getRetoques(){
+    return this.listaRetoques;
+  }
+
   registrarFiesta(pFiesta){
     this.fiesta.push(pFiesta);
   }
-  
-  
 
   obtenerFiesta(){
     return this.fiesta;

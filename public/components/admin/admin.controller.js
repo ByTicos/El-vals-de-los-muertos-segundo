@@ -46,8 +46,8 @@
 
       vm.nuevoRetoque = null;
       listarRetoques();
-    }
 
+    }
 
     function listarRetoques() {
       vm.listaRetoques = servicioRetoques.obtenerRetoques();
