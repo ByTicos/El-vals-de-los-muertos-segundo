@@ -1,0 +1,219 @@
+<div ng-include = "'./components/includes/_header.html'"></div>
+<div class="container-fluid">
+<div class="container-fluid">
+    <h1>Admin</h1>
+<div class="pt-5 container-fluid">
+  <legend>Usuarios activos</legend>
+  <button type="button" ng-click="mostrar()" class="btn buttonall">Usuarios desactivados</button>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Foto</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Cédula</th>
+        <th>Provincia</th>
+        <th>Cantón</th>
+        <th>Distrito</th>
+        <th>Ubicacion</th>
+        <th>Fecha de Nacimiento</th>
+        <th>Edad</th>
+        <th>Género</th>
+        <th>Nombre de usuario</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="usuario in vm.listaUsuarios" ng-if="usuario.estado === 'activo'">
+        <td>{{usuario.foto}}</td>
+        <td>{{usuario.nombre}}</td>
+        <td>{{usuario.cedula}}</td>
+        <td>{{usuario.apellido}}</td>
+        <td>{{usuario.provincia}}</td>
+        <td>{{usuario.canton}}</td>
+        <td>{{usuario.distrito}}</td>
+        <td>{{usuario.ubicacion}}</td>
+        <td>{{usuario.fechaNacimiento | date : "dd/mm/yyyy" }}</td>
+        <td>{{usuario.edad}}</td>
+        <td>{{usuario.genero}}</td>
+        <td>{{usuario.nombreUsuario}}</td>
+        <td>
+          <button class="btn buttonall" type="button" ng-click="vm.eliminarUsuario(usuario.cedula)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="pt-5" ng-class="hidden">
+  <legend>Usuarios desactivados</legend>
+  <table class="table table-hover">
+    <button class="btn btn-primary ng-hide" type="button">Ocultar</button>
+    <thead>
+      <tr>
+        <th>Foto</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Cédula</th>
+        <th>Provincia</th>
+        <th>Cantón</th>
+        <th>Distrito</th>
+        <th>Ubicacion</th>
+        <th>Fecha de Nacimiento</th>
+        <th>Edad</th>
+        <th>Género</th>
+        <th>Nombre de usuario</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="usuario in vm.listaUsuarios" ng-if="usuario.estado === 'inactivo'">
+        <td>{{usuario.foto}}</td>
+        <td>{{usuario.nombre}}</td>
+        <td>{{usuario.apellido}}</td>
+        <td>{{usuario.cedula}}</td>
+        <td>{{usuario.provincia}}</td>
+        <td>{{usuario.canton}}</td>
+        <td>{{usuario.distrito}}</td>
+        <td>{{usuario.ubicacion}}</td>
+        <td>{{usuario.fechaNacimiento | date : "dd/mm/yyyy" }}</td>
+        <td>{{usuario.edad}}</td>
+        <td>{{usuario.genero}}</td>
+        <td>{{usuario.nombreUsuario}}</td>
+        <td>
+          <button class="btn btn-primary" type="button" ng-click="vm.activarUsuario(usuario.cedula)">Activar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  <div class="pt-5 container-fluid">
+      <legend>Muertos</legend>
+    <table class="table table table-hover">
+      <thead>
+        <tr>
+          <th>Apodo</th>
+          <th>Edad</th>
+          <th>Genero</th>
+          <th>Tamaño</th>
+          <th>Entierro</th>
+          <th>Retoques</th>
+          <th>Fiesta</th>
+          <th>Desactivar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="muerto in vm.listaMuertos">
+          <td>{{muerto.apodo}}</td>
+          <td>{{muerto.edad}}</td>
+          <td>{{muerto.genero}}</td>
+          <td>{{muerto.tamanno}}</td>
+          <td>
+            <button class="btn buttonall" type="button">Entierros</button>
+          </td>
+          <td>
+            <button class="btn buttonall" type="button">Retoques</button>
+          </td>
+          <td>
+            <button class="btn buttonall" type="button">Fiesta</button>
+          </td>
+          <td>
+            <button class="btn buttonall" type="button">Desactivar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<section>
+  <div class="pt-5 container-fluid">
+    <legend>Registre Nuevos Retoques</legend>
+   <form  ng-submit="vm.agregarNuevoRetoque(vm.nuevoRetoque)">
+
+     <div class="form-control">
+       <label for="">ID</label>
+       <input type="number" ng-model="vm.nuevoRetoque.id"  value="">
+     </div>
+
+     <div class="form-control">
+       <label for="">Nombre</label>
+       <input type="text" ng-model="vm.nuevoRetoque.nombre"  value="">
+     </div>
+
+     <div class="form-control">
+         <label for="">Costo</label>
+         <input type="number" ng-model="vm.nuevoRetoque.costo"  value="">
+       </div>
+
+
+     <button type="submit" name="button" class="btn buttonall">Registrar Retoque</button>
+   </form>
+ </div>
+
+ <div class="pt-5">
+   <table class="table table table-hover">
+     <thead>
+       <tr>
+         <th>Id</th>
+         <th>Nombre</th>
+         <th>Costo</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr ng-repeat="retoque in vm.listaRetoques">
+         <td>{{retoque.id}}</td>
+         <td>{{retoque.nombre}}</td>
+         <td>{{retoque.costo}}</td>
+       </tr>
+     </tbody>
+   </table>
+ </div>
+</section>
+
+
+
+
+    <section id="animadores" class="container-fluid">
+      <div class="">
+        <h2>Crear Animadores</h2>
+
+      </div>
+      <form class="form-horizontal row" ng-submit="vm.registrarAnimador(vm.nuevoAnimador)">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">ID</label>
+              <input class="form-control" type="text" ng-model="vm.nuevoAnimador.id">
+            </div>
+            <div class="form-group">
+              <label for="">Apodo</label>
+              <input class="form-control" type="text" ng-model="vm.nuevoAnimador.apodo">
+            </div>
+            <div class="form-group">
+              <label for="">Costo</label>
+              <input type="Number" class="form-control" ng-model="vm.nuevoAnimador.costo">
+            </div>
+    
+       <div class="">
+            <button class="btn buttonall" type="submit">Registrar Animador</button>
+        </div>
+      </form>
+    
+    
+      <div class="col-9">
+          <table class="table">
+            <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Apodo</th>
+                  <th>Costo</th>
+                </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="animador in vm.listaAnimador">
+                <td>{{animador.id}}</td>
+                <td>{{animador.apodo}}</td>
+                <td>{{animador.costo}}</td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+    </section>

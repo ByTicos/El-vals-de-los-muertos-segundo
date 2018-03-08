@@ -1,0 +1,77 @@
+<div ng-include = "'./components/includes/_header.html'"></div>
+<section class="container paddingfix2">
+<div class="pt-5">
+  <form class="form-horizontal row" ng-submit="vm.registrarUsuario(vm.nuevoUsuario)">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="">Foto</label>
+        <input class="form-control effect6" type="text" ng-model="vm.nuevoUsuario.foto">
+      </div>
+      <div class="form-group">
+        <label for="">Nombre</label>
+        <input class="form-control effect6" type="text" ng-model="vm.nuevoUsuario.nombre">
+      </div>
+      <div class="form-group">
+        <label for="">Apellido</label>
+        <input type="text" class="form-control effect6" ng-model="vm.nuevoUsuario.apellido">
+      </div>
+      <div class="form-group">
+        <label for="">Cédula</label>
+        <input class="form-control effect6" type="text" ng-model="vm.nuevoUsuario.cedula">
+      </div>
+      <div class="form-group">
+        <label for="">Provincia</label>
+        <input class="form-control effect6" type="text" ng-model="vm.nuevoUsuario.provincia">
+      </div>
+      <div class="form-group">
+        <label for="">Canton</label>
+        <input class="form-control effect6" type="text" ng-model="vm.nuevoUsuario.canton">
+      </div>
+      <div class="form-group">
+        <label for="">Distrito</label>
+        <input class="form-control effect6" type="text" ng-model="vm.nuevoUsuario.distrito">
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="">Ubicacion</label>
+        <input class="form-control effect6" type="text" ng-model="vm.nuevoUsuario.ubicacion">
+      </div>
+      <div class="form-group">
+        <label for="">Fecha de nacimiento</label>
+        <input class="form-control effect6" type="date" ng-model="vm.nuevoUsuario.fechaNacimiento">
+      </div>
+      <div class="form-group">
+        <label for="">Edad</label>
+        <input class="form-control effect6" type="number" ng-model="vm.nuevoUsuario.edad">
+      </div>
+      <div class="form-group">
+        <label for="">Genero</label>
+        <select class="form-control effect6" ng-model="vm.nuevoUsuario.genero">
+            <option value="Masculino" selected>Masculino</option>
+            <option value="Femenino">Femenino</option>
+            <option value="Indefinido">Indefinido</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="">Nombre de usuario</label>
+        <input class="form-control effect6" type="text" ng-model="vm.nuevoUsuario.nombreUsuario">
+      </div>
+      <div class="form-group">
+        <label for="">Contraseña</label>
+        <input class="form-control effect6" type="password" ng-model="vm.nuevoUsuario.contrasenna">
+      </div>
+      <div class="form-group">
+        <label for="">Confirmar contrasenna</label>
+        <input class="form-control effect6" type="password" ng-model="vm.nuevoUsuario.confirmarContrasenna">
+      </div>
+      
+    </div>
+    <div class="container">
+        <button class="btn buttonall" type="submit">Registrarse</button>
+    </div>
+  </form>
+
+</div>
+</section>
+<div ng-include="'./components/includes/_footer.html'"></div>

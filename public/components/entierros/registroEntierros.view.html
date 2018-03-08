@@ -1,0 +1,78 @@
+<div ng-include="'./components/includes/_header.html'"></div>
+
+<section class="container">
+  <div class="pt-5">
+    <form class="form-horizontal row" ng-submit="vm.registrarEntierro(vm.nuevoEntierro)">
+<div class="col-md-6">
+
+
+<div class="form-group">
+  <label for="">Fecha</label>
+  <input class="form-control" type="date" ng-model="vm.nuevoEntierro.fecha" min="0" required >
+</div>
+
+<div class="form-group">
+  <label for="">Hora de inicio</label>
+  <input class="form-control" type="text" ng-model="vm.nuevoEntierro.horaInicio" required>
+</div>
+
+<div class="form-group">
+  <label for="">Hora final</label>
+  <input class="form-control" type="number" ng-model="vm.nuevoEntierro.horaFin" min="0" required>
+</div>
+
+<div class="form-group">
+    <label for="">Prioridad</label>
+    <input class="form-control" type="number" ng-model="vm.nuevoEntierro.prioridad" min="0" required>
+  </div>
+
+
+  <div class="form-group">
+      <label for="">Lugar</label>
+      <input class="form-control" type="number" ng-model="vm.nuevoEntierro" min="0" required>
+    </div>
+
+<button class="btn btn-primary" type="submit">Registrar</button>
+</div>
+      
+      
+
+    </form>
+  </div>
+  <div class="pt-5">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>Hora de inicio</th>
+          <th>Hora final</th>
+          <th>Prioridad</th>
+          <th>Lugar</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="muerto in vm.listaEntierros">
+          <td>{{Entierros.fecha}}</td>
+          <td>{{Entierros.horaInicio}}</td>
+          <td>{{Entierros.horaFin}}</td>
+          <td>{{Entierros.prioridad}}</td>
+          <td>{{Entierros.lugar}}</td>
+          <td>
+            <button type="button">Entierros</button>
+          </td>
+          <td>
+            <button type="button">Retoques</button>
+          </td>
+          <td>
+            <button type="button">Fiesta</button>
+          </td>
+          <td>
+            <button type="button">Desactivar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<div ng-include="'./components/includes/_footer.html'"></div>

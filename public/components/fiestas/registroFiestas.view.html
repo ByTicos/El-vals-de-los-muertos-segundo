@@ -1,0 +1,56 @@
+<div ng-include="'./components/includes/_header.html'"></div>
+
+<section class="container mt-5 pt-5" id="">
+  <div class="pt-5">
+    <form class="form-horizontal row container" ng-submit="vm.registrarFiesta(vm.nuevaFiesta)">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="">Fecha</label>
+          <input class="form-control effect6" type="date" ng-model="vm.nuevaFiesta.fecha" required>
+        </div>
+
+        <div class="form-group">
+          <label for="">Duracion</label>
+          <input class="form-control effect6" type="text" ng-model="vm.nuevaFiesta.duracion" required >
+        </div>
+
+        <div class="form-group">
+          <label for="">Costo</label>
+          <input class="form-control effect6" type="number" ng-model="vm.nuevaFiesta.costo" min="0" required >
+        </div>
+
+        
+
+
+        <button class="btn buttonall" type="submit">Registrar</button>
+
+      </div>
+     
+
+    </form>
+      <div class="pt-5">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Duracion</th>
+                <th>Costo</th>
+                <th>Animador</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="fiesta in vm.listaFiestas">
+                <td>{{fiesta.fecha}}</td>
+                <td>{{fiesta.duracion}}</td>
+                <td>{{fiesta.costo}}</td>
+                <td>{{fiesta.animador}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      
+      </div>
+    
+ 
+</section>
+<div ng-include="'./components/includes/_footer.html'"></div>

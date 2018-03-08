@@ -1,0 +1,74 @@
+<div ng-include="'./components/includes/_header.html'"></div>
+
+<section class="container mt-5 pt-5">
+  <div class="pt-5">
+    <form class="form-horizontal row" ng-submit="vm.agregarnuevoMuerto(vm.nuevoMuerto)">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="">Apodo</label>
+          <input class="form-control effect6" type="text" ng-model="vm.nuevoMuerto.apodo" required>
+        </div>
+
+        <div class="form-group">
+          <label for="">Edad</label>
+          <input class="form-control effect6" type="number" ng-model="vm.nuevoMuerto.edad" min="0" required>
+        </div>
+
+        <div class="form-group">
+          <label for="">Genero</label>
+          <select class="form-control effect6" ng-model="vm.nuevoMuerto.genero" required>
+            <option value="Masculino" selected>Masculino</option>
+            <option value="Femenino">Femenino</option>
+            <option value="Indefinido">Indefinido</option>
+          </select>
+        </div>
+
+
+        <div class="form-group">
+          <label for="">Tamaño</label>
+          <input class="form-control effect6" type="number" ng-model="vm.nuevoMuerto.tamanno" min="0" required>
+        </div>
+        <button class="btn buttonall" type="submit">Registrar</button>
+      </div>
+
+<div></div>
+
+    </form>
+  </div>
+  <div class="pt-5">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Apodo</th>
+          <th>Edad</th>
+          <th>Genero</th>
+          <th>Tamaño</th>
+          <th>Entierro</th>
+          <th>Retoques</th>
+          <th>Fiestas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="muerto in vm.listaMuertos">
+          <td>{{muerto.apodo}}</td>
+          <td>{{muerto.edad}}</td>
+          <td>{{muerto.genero}}</td>
+          <td>{{muerto.tamanno}}</td>
+          
+          <td>
+            <button type="button"  ng-click="" class="btn buttonall">Entierros</button>
+          </td>
+            
+          <td>
+         <button type="button" ng-click="vm.agregarRetoqueaMuerto(muerto)" class="btn buttonall">Retoques</button>
+          </td>
+           <td>
+         <button type="button" ng-click="vm.agregarFiestaaMuerto(muerto)" class="btn buttonall">Fiestas</button>
+          </td>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<div ng-include="'./components/includes/_footer.html'"></div>

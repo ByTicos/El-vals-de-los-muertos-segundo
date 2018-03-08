@@ -1,0 +1,22 @@
+<div ng-include = "'./components/includes/_header.html'"></div>
+<div class="container">
+  <h1 class="">Bienvenido! Registre Sesion</h1>
+  <form class="form-inline pt-5 mt-5" ng-submit="vm.inicarSesion(vm.usuario)">
+    <div class="form-group paddingfix">
+      <label for="" class="paddingfix">Nombre de usuario</label>
+      <input class="form-control effect6" type="text" ng-model="vm.usuario.nombreUsuario">
+    </div>
+    <div class="form-group">
+      <label for="" class="paddingfix">Contraseña</label>
+      <input class="form-control effect6 " type="text" ng-model="vm.usuario.contrasenna">
+    </div>
+   
+     <button class="btn buttonall" type="submit">Inicar sesion</button>
+    <div class="g-signin2" data-onsuccess="onSignIn">
+      <button type="button" ng-click="signIn()"></button>
+    </div>  
+   
+  </div> 
+  </form>
+
+  

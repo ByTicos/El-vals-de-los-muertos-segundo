@@ -1,0 +1,11 @@
+.DS_Store
+node_modules
+public/lib
+package-lock.json
+TODO.md
+
+public/sources/video/rain.mp4
+
+
+public/.DS_Store
+.vscode/settings.json
