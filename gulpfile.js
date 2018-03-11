@@ -33,7 +33,8 @@ gulp.task('dependencies', () => {
   gulp.src([
     './node_modules/@uirouter/angularjs/release/angular-ui-router.min.js',
     './node_modules/oclazyload/dist/ocLazyLoad.min.js',
-    './node_modules/ui-router-page-title/page-title.min.js'
+    './node_modules/ui-router-page-title/page-title.min.js',
+    './node_modules/checklist-model/checklist-model.js'
   ])
     .pipe(gulp.dest('./public/lib/angular/routing'));
 

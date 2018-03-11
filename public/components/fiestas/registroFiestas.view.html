@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-6">
       <form class="form-horizontal row container" ng-submit="vm.registrarFiesta(vm.nuevaFiesta)">
-        <div class="col-md-6">
+        <div class="">
           <div class="form-group">
             <label for="">Fecha</label>
             <input class="form-control effect6" type="date" ng-model="vm.nuevaFiesta.fecha" required>
@@ -12,15 +12,24 @@
 
           <div class="form-group">
             <label for="">Duracion en horas</label>
-            <input class="form-control effect6" type="number" ng-model="vm.nuevaFiesta.duracion">
+            <input class="form-control effect6" type="number" ng-model="vm.nuevaFiesta.duracion" required>
           </div>
 
-          <!-- <div class="form-group">
+          <div class="form-group">
             <p>Seleccione su animador</p>
-            <label ng-repeat="animador in vm.listaAnimador">
-              <input type="checkbox" checklist-model="vm.nuevaFiesta.animador" checklist-value="animador.costo"> {{animador.apodo}}
-            </label>
-          </div> -->
+            <p ng-repeat="animador in vm.listaAnimador">
+              <input type="checkbox" data-checklist-model="vm.nuevaFiesta.animador" data-checklist-value="animador" class="radio-inline"> {{animador.apodo}} {{animador.costo}}
+            </p>
+
+          </div> 
+          <div class="form-group">
+            <div class="nav">
+            <p>Seleccione la casilla de abajo si desea pagar en efectivo</p>
+          </div>
+            <p>
+              <input type="checkbox" ng-model="vm.descuento" class="radio-inline">Pago en Efectivo {{vm.descuento}}
+            </p>
+          </div>
           <button class="btn buttonall" type="submit">Agregar Fiesta</button>
 
         </div>
@@ -29,8 +38,15 @@
 
     </div>
     </form>
+
+
     <div class="col-6">
-      <h2>Costo Total es de:</h2>
+      <h2>Costos</h2>
+        <ul>
+          <li>Costo por Hora = {{vm.costoPorHora}}</li>
+          <li>Costo Total = {{vm.costoTotal}}</li>
+  
+        </ul>
 
     </div>
 
@@ -50,7 +66,11 @@
             <td>{{fiesta.fecha}}</td>
             <td>{{fiesta.duracion}}</td>
             <td>{{fiesta.costo}}</td>
-            <td>{{fiesta.animador}}</td>
+            <td>
+              <p ng-repeat="animador in fiesta.animador">
+                {{animador.apodo}}
+              </p>
+            </td>
           </tr>
         </tbody>
       </table>

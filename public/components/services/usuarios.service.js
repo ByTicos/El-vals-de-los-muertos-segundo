@@ -63,7 +63,7 @@
 
             objMuertos.fiesta.forEach(objFiesta =>{
 
-              let objFiestaTemporal = new Fiestas (objFiesta.fecha, objFiesta.duracion, objFiesta.costo, objFiesta.animadores);
+              let objFiestaTemporal = new Fiestas (objFiesta.fecha, objFiesta.duracion, objFiesta.costo, objFiesta.animador);
 
               objMuertoTemporal.registrarFiesta(objFiestaTemporal);
             })
