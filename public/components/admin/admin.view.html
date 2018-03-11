@@ -4,7 +4,7 @@
     <h1>Admin</h1>
 <div class="pt-5 container-fluid">
   <legend>Usuarios activos</legend>
-  <button type="button" ng-click="mostrar()" class="btn buttonall">Usuarios desactivados</button>
+  <button type="button" ng-click="mostrar()" class="btn buttonall ng-hide">Usuarios desactivados</button>
   <table class="table table-hover">
     <thead>
       <tr>
@@ -46,7 +46,7 @@
 <div class="pt-5" ng-class="hidden">
   <legend>Usuarios desactivados</legend>
   <table class="table table-hover">
-    <button class="btn btn-primary ng-hide" type="button">Ocultar</button>
+    <button class="btn buttonall ng-hide" type="button">Ocultar</button>
     <thead>
       <tr>
         <th>Foto</th>
@@ -78,7 +78,7 @@
         <td>{{usuario.genero}}</td>
         <td>{{usuario.nombreUsuario}}</td>
         <td>
-          <button class="btn btn-primary" type="button" ng-click="vm.activarUsuario(usuario.cedula)">Activar</button>
+          <button class="btn buttonall" type="button" ng-click="vm.activarUsuario(usuario.cedula)">Activar</button>
         </td>
       </tr>
     </tbody>

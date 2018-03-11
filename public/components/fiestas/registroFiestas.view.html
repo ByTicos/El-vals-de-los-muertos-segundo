@@ -1,56 +1,63 @@
 <div ng-include="'./components/includes/_header.html'"></div>
 
 <section class="container mt-5 pt-5" id="">
-  <div class="pt-5">
-    <form class="form-horizontal row container" ng-submit="vm.registrarFiesta(vm.nuevaFiesta)">
-      <div class="col-md-6">
-        <div class="form-group">
-          <label for="">Fecha</label>
-          <input class="form-control effect6" type="date" ng-model="vm.nuevaFiesta.fecha" required>
+  <div class="row">
+    <div class="col-6">
+      <form class="form-horizontal row container" ng-submit="vm.registrarFiesta(vm.nuevaFiesta)">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="">Fecha</label>
+            <input class="form-control effect6" type="date" ng-model="vm.nuevaFiesta.fecha" required>
+          </div>
+
+          <div class="form-group">
+            <label for="">Duracion en horas</label>
+            <input class="form-control effect6" type="number" ng-model="vm.nuevaFiesta.duracion">
+          </div>
+
+          <!-- <div class="form-group">
+            <p>Seleccione su animador</p>
+            <label ng-repeat="animador in vm.listaAnimador">
+              <input type="checkbox" checklist-model="vm.nuevaFiesta.animador" checklist-value="animador.costo"> {{animador.apodo}}
+            </label>
+          </div> -->
+          <button class="btn buttonall" type="submit">Agregar Fiesta</button>
+
         </div>
 
-        <div class="form-group">
-          <label for="">Duracion</label>
-          <input class="form-control effect6" type="text" ng-model="vm.nuevaFiesta.duracion" required >
-        </div>
+      </form>
 
-        <div class="form-group">
-          <label for="">Costo</label>
-          <input class="form-control effect6" type="number" ng-model="vm.nuevaFiesta.costo" min="0" required >
-        </div>
-
-        
-
-
-        <button class="btn buttonall" type="submit">Registrar</button>
-
-      </div>
-     
-
+    </div>
     </form>
-      <div class="pt-5">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Fecha</th>
-                <th>Duracion</th>
-                <th>Costo</th>
-                <th>Animador</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr ng-repeat="fiesta in vm.listaFiestas">
-                <td>{{fiesta.fecha}}</td>
-                <td>{{fiesta.duracion}}</td>
-                <td>{{fiesta.costo}}</td>
-                <td>{{fiesta.animador}}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      
-      </div>
-    
- 
+    <div class="col-6">
+      <h2>Costo Total es de:</h2>
+
+    </div>
+
+    <p class="col-12">Recuerde que el precio final puede variar de acuerdo a los Animadores Seleccionados</p>
+    <div class="col-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Duracion</th>
+            <th>Costo</th>
+            <th>Animador</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="fiesta in vm.listaFiestas">
+            <td>{{fiesta.fecha}}</td>
+            <td>{{fiesta.duracion}}</td>
+            <td>{{fiesta.costo}}</td>
+            <td>{{fiesta.animador}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+
 </section>
 <div ng-include="'./components/includes/_footer.html'"></div>

@@ -1,43 +1,50 @@
 (() => {
   'use strict';
   angular
-  .module('funeraria')
-  .controller('controladorRegistroFiestas', controladorRegistroFiestas);
+    .module('funeraria')
+    .controller('controladorRegistroFiestas', controladorRegistroFiestas);
 
   controladorRegistroFiestas.$inject = ['$stateParams', '$state', 'servicioUsuarios']
 
-  function controladorRegistroFiestas($stateParams, $state, servicioUsuarios){
+  function controladorRegistroFiestas($stateParams, $state, servicioUsuarios) {
     let vm = this;
 
+
     // aqui validamos que el paramatero exista, en caso de que no exista nos redijirá al estado anterior
-    if(!$stateParams.objMuertoTemp){
-      $state.go('muertos');
+    if (!$stateParams.objMuertoTemp) {
+      $state.go('registrarMuertos');
     }
-    console.log($stateParams);
-    let objSinFormatoMuerto = $stateParams.objMuertoTemp;
 
-    let objMuerto = new Muerto (objSinFormatoMuerto.apodo, objSinFormatoMuerto.edad, objSinFormatoMuerto.genero, objSinFormatoMuerto.tamanno, objSinFormatoMuerto.fiesta);
 
-    console.log('objetosinformato',objSinFormatoMuerto);
+
+    let objSinFormatoMuerto = JSON.parse($stateParams.objMuertoTemp);
+
+    let objMuerto = new Muerto(objSinFormatoMuerto.apodo, objSinFormatoMuerto.edad, objSinFormatoMuerto.genero, objSinFormatoMuerto.tamanno, objSinFormatoMuerto.fiesta);
+
 
     //vm.infoMuerto = objMuerto.getInfoMuerto();
 
-     listaFiestas(objMuerto);
+    listaFiestas(objMuerto);
+    // listarAnimador();
 
-    //vm.nuevaFiesta = {};
-    
+    vm.nuevaFiesta = {};
+    vm.nuevaFiesta.duracion = 2;
+    vm.nuevaFiesta.fecha = new Date("October 13, 2014 11:13:00");
 
     // vm.listarFiestas = Animadores.obtenerFiesta(objMuerto);
 
     vm.registrarFiesta = (nuevaFiesta) => {
 
-      let objFiesta = new Fiestas(nuevaFiesta.fecha, nuevaFiesta.duracion, nuevaFiesta.costo)
+      let objFiesta = new Fiestas(nuevaFiesta.fecha, nuevaFiesta.duracion, nuevaFiesta.costo, nuevaFiesta.animadores)
 
-      objMuerto =  servicioUsuarios.addFiesta(objMuerto, objFiesta);
-     
-      console.log(localStorage);
 
-      //objMuerto = objMuerto.obtenerInfoMuerto();
+
+      let objMuerto2 = servicioUsuarios.addFiesta(objMuerto, objFiesta);
+      objMuerto = new Muerto(objMuerto2.apodo, objMuerto2.edad, objMuerto2.genero, objMuerto2.tamanno, objMuerto2.fiesta);
+      // servicioUsuarios.addFiesta(objMuerto, objFiesta);
+
+
+      // objMuerto = objMuerto.obtenerInfoMuerto();
 
       listaFiestas(objMuerto);
 
@@ -52,12 +59,22 @@
       $state.go('muertos');
     }
 
-     function listaFiestas(objMuerto){
-       console.log(objMuerto);
-     vm.listaFiestas = objMuerto.obtenerFiesta();
-     console.log(vm.listaFiestas)
+    function listaFiestas(objMuerto) {
+
+      vm.listaFiestas = objMuerto.obtenerFiesta();
+
     }
 
-    
+    // function listarAnimador() {
+    //   vm.listaAnimador = servicioAnimadores.obtenerAnimador();
+    // }
+
+    // vm.checkAll = function () {
+    //   vm.nuevaFiesta.animadores = vm.nuevaFiesta.animadores.map(function (animador) {
+    //     return animador;
+    //   });
+    // };
+
+
   }
 })();

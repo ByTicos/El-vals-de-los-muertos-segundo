@@ -47,14 +47,14 @@ class Cliente{
 }
 
 class Muerto{
-  constructor(pApodo,pEdad, pGenero, pTamanno){
+  constructor(pApodo,pEdad, pGenero, pTamanno, pFiesta){
     this.apodo = pApodo;
     this.edad = pEdad ;
     this.genero = pGenero;
     this.tamanno = pTamanno;
     this.entierro= '';
     this.listaRetoques=[];
-    this.fiesta = [];
+    this.fiesta = pFiesta || [];
   }
   registrarEntierros(pEntierro){
     this.entierro=pEntierro;
@@ -112,11 +112,11 @@ class Retoques {
 }
 
 class Fiestas {
-  constructor (pFecha, pDuracion, pCosto) {
+  constructor (pFecha, pDuracion, pCosto, pAnimador) {
     this.fecha = pFecha;
     this.duracion = pDuracion;
     this.costo = pCosto;
-    this.animador = [];
+    this.animador = pAnimador || [];
   }
   registrarAnimador(pAnimador){
     this.animador=pAnimador;
