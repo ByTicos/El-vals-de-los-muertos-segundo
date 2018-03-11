@@ -79,6 +79,10 @@ class Muerto{
   obtenerInfoMuerto(){
     return this;
   }
+
+  obtenerInfoRetoque(){
+    return this.listaRetoques;
+  }
   
 }
 
@@ -104,6 +108,7 @@ class Retoques {
     this.costo=pCosto;
 
 }
+
 }
 
 class Fiestas {

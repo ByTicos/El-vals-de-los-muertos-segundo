@@ -16,9 +16,9 @@
     console.log($stateParams);
     let objSinFormatoMuerto = $stateParams.objMuertoTemp;
 
-    let objMuerto = new Muerto (objSinFormatoMuerto.apodo, objSinFormatoMuerto.edad, objSinFormatoMuerto.genero, objSinFormatoMuerto.tamanno, objSinFormatoMuerto.fiesta);
-
-    console.log('objetosinformato',objSinFormatoMuerto);
+    let objMuerto = angular.fromJson($stateParams.objMuertoTemp);
+        
+    console.log(objMuerto);
 
 
     vm.listaRetoques = servicioRetoques.obtenerRetoques();
@@ -50,11 +50,14 @@
         $state.go('registrarMuertos');
       }
   
-       function listaRetoques(objMuerto){
-         console.log(objMuerto);
-       vm.listaRetoques = objMuerto.getRetoques();
-       console.log(vm.listaRetoques)
-      }
+
+
+      function listaRetoques(objMuerto){
+        console.log(objMuerto);
+      vm.listaRetoques = objMuerto.obtenerInfoRetoque();
+      console.log(vm.listaRetoques)
+     }
+
 
   }
 } 

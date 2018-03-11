@@ -14,9 +14,9 @@
     vm.listaMuertos = servicioUsuarios.getAllMuertos();
 
     vm.nuevoRetoque = {};
-    vm.listaRetoques = listarRetoques();
+    vm.listaRetoques = servicioRetoques.obtenerRetoques();
 
-    listarRetoques();
+    
 
     vm.eliminarUsuario = (pCedula) => {
       console.log(pCedula);
@@ -37,15 +37,19 @@
       console.log('objeto con usuario');
       console.log(objNuevoRetoque);
 
-      servicioRetoques.agregarRetoques(objNuevoRetoque);
+      let valido = servicioRetoques.agregarRetoques(objNuevoRetoque);
 
-      // Retroalimentación Visual para los usuarios
-      swal("Registro exitoso", "El retoque ha sido registrado correctamente", "success", {
-        button: "Aceptar",
-      });
-
-      vm.nuevoRetoque = null;
-      listarRetoques();
+      if(valido == true) {
+        swal("Registro exitoso", "El retoque ha sido registrado correctamente", "success", {
+          button: "Aceptar",
+        });
+        listarRetoques();
+        vm.nuevoRetoque = null;
+      }else{
+        swal("Registro no exitoso", "El retoque ha sido registrado correctamente", "error", {
+          button: "Aceptar",
+        });
+      }
 
     }
 
