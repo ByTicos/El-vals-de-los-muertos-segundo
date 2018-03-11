@@ -37,9 +37,7 @@
     }
 
     vm.agregarFiestaaMuerto = (pMuerto) => {
-      console.log(pMuerto);
-
-      $state.go('registroFiestas', {objMuertoTemp: pMuerto})
+      $state.go('registroFiestas', {objMuertoTemp: JSON.stringify(pMuerto)});
     }
      function listarMuertos() {
       vm.listaMuertos = servicioUsuarios.getMuerto();

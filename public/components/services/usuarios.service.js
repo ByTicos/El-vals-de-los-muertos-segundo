@@ -59,11 +59,11 @@
           
 
           obj.listaMuertos.forEach(objMuertos =>{
-            let objMuertoTemporal = new Muerto (objMuertos.apodo, objMuertos.edad, objMuertos.genero, objMuertos.tamanno );
+            let objMuertoTemporal = new Muerto (objMuertos.apodo, objMuertos.edad, objMuertos.genero, objMuertos.tamanno, []);
 
-            objMuertoTemporal.fiesta.forEach(objFiesta =>{
+            objMuertos.fiesta.forEach(objFiesta =>{
 
-              let objFiestaTemporal = new Fiestas (objFiesta.fecha, objFiesta.duracion, objFiesta.costo);
+              let objFiestaTemporal = new Fiestas (objFiesta.fecha, objFiesta.duracion, objFiesta.costo, objFiesta.animadores);
 
               objMuertoTemporal.registrarFiesta(objFiestaTemporal);
             })
@@ -154,18 +154,13 @@ function _getAllMuertos(){
 
   function _addFiesta(pMuerto, pFiesta){
     let listaUsuarios = _getUsuarios();
-    let listaVehiculos = [];
     let fiesta = {};
     
     for(let i = 0; i < listaUsuarios.length; i++){
-      
-      
+          
       for(let j=0 ;j < listaUsuarios[i].obtenerMuertos().length; j++){
-       
-        
-        if(JSON.stringify(listaUsuarios[i].obtenerMuertos()[j].obtenerInfoMuerto()) == JSON.stringify(pMuerto.obtenerInfoMuerto())){
 
-         
+        if(listaUsuarios[i].obtenerMuertos()[j].obtenerInfoMuerto().apodo == pMuerto.obtenerInfoMuerto().apodo){
           listaUsuarios[i].obtenerMuertos()[j].registrarFiesta(pFiesta);
           fiesta = listaUsuarios[i].obtenerMuertos()[j];
           console.log('Registro fiesta completo', listaUsuarios[i].obtenerMuertos()[j]);
