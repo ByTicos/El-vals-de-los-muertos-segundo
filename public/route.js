@@ -22,6 +22,9 @@
         data:{
           pageTitle: 'Registro admin'
         },
+        params: {
+          objUsuarioTemp:''
+        },
         resolve: {
           load: ['$ocLazyLoad', ($ocLazyLoad) => {
             return $ocLazyLoad.load('./components/admin/admin.controller.js')
@@ -43,6 +46,24 @@
           }]
         },
         controller: 'controladorUsuarios',
+        controllerAs: 'vm'
+      })
+
+      .state('editarUsuarios', {
+        url: '/editarUsuarios',
+        templateUrl: './components/usuarios/editarUsuarios.view.html',
+        data:{
+          pageTitle: 'Editar usuario'
+        },
+        params: {
+          objUsuarioTemp:''
+        },
+        resolve: {
+          load: ['$ocLazyLoad', ($ocLazyLoad) => {
+            return $ocLazyLoad.load('./components/usuarios/editarUsuarios.controller.js')
+          }]
+        },
+        controller: 'controladorEditarUsuarios',
         controllerAs: 'vm'
       })
 

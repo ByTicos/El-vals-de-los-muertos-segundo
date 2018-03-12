@@ -26,7 +26,6 @@
         swal("Datos correctos", "Sesion iniciada correctamente", "success");
           if(pCredenciales.nombreUsuario == 'admin'){
             $location.path('/admin');
-            console.log(user);
 
           }
           else{

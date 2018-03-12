@@ -4,9 +4,9 @@
   .module('funeraria')
   .controller('controladorAdministrador', controladorAdministrador);
 
-  controladorAdministrador.$inject = ['servicioUsuarios','servicioAdministrador','servicioRetoques', 'servicioAnimadores']
+  controladorAdministrador.$inject = ['$stateParams', '$state','servicioUsuarios','servicioAdministrador','servicioRetoques', 'servicioAnimadores']
 
-  function controladorAdministrador(servicioUsuarios, servicioAdministrador, servicioRetoques, servicioAnimadores){
+  function controladorAdministrador($stateParams, $state, servicioUsuarios, servicioAdministrador, servicioRetoques, servicioAnimadores){
     let vm = this;
 
     vm.listaUsuarios = servicioUsuarios.getUsuarios();
@@ -15,7 +15,12 @@
 
     vm.nuevoRetoque = {};
     vm.listaRetoques = servicioRetoques.obtenerRetoques();
+    listarUsuarios();
+    
+    vm.editarUsuario = (pUsuario) =>{
+      $state.go('editarUsuarios', {objUsuarioTemp : JSON.stringify(pUsuario)});
 
+    };
     
 
     vm.eliminarUsuario = (pCedula) => {
@@ -90,6 +95,9 @@
 
     function listarAnimador() {
       vm.listaAnimador = servicioAnimadores.obtenerAnimador();
+    }
+    function listarUsuarios() {
+      vm.listaUsuarios = servicioUsuarios.getUsuarios();
     }
     
   }
