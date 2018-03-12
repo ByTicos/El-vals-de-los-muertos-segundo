@@ -20,24 +20,29 @@
         <th>Edad</th>
         <th>Género</th>
         <th>Nombre de usuario</th>
+        <th>Desactivar</th>
+        <th>Editar</th>
       </tr>
     </thead>
     <tbody>
       <tr ng-repeat="usuario in vm.listaUsuarios" ng-if="usuario.estado === 'activo'">
         <td>{{usuario.foto}}</td>
         <td>{{usuario.nombre}}</td>
-        <td>{{usuario.cedula}}</td>
         <td>{{usuario.apellido}}</td>
+        <td>{{usuario.cedula}}</td>
         <td>{{usuario.provincia}}</td>
         <td>{{usuario.canton}}</td>
         <td>{{usuario.distrito}}</td>
         <td>{{usuario.ubicacion}}</td>
-        <td>{{usuario.fechaNacimiento | date : "dd/mm/yyyy" }}</td>
+        <td>{{usuario.fechaNacimiento | date}}</td>
         <td>{{usuario.edad}}</td>
         <td>{{usuario.genero}}</td>
         <td>{{usuario.nombreUsuario}}</td>
         <td>
-          <button class="btn buttonall" type="button" ng-click="vm.eliminarUsuario(usuario.cedula)">Eliminar</button>
+          <button class="btn buttonall" type="button" ng-click="vm.eliminarUsuario(usuario.cedula)">Desactivar</button>
+        </td>
+        <td>
+          <button class="btn buttonall" type="button" ng-click="vm.editarUsuario(usuario)">Editar</button>
         </td>
       </tr>
     </tbody>
@@ -61,6 +66,7 @@
         <th>Edad</th>
         <th>Género</th>
         <th>Nombre de usuario</th>
+        <th>Activar</th>
       </tr>
     </thead>
     <tbody>
@@ -73,7 +79,7 @@
         <td>{{usuario.canton}}</td>
         <td>{{usuario.distrito}}</td>
         <td>{{usuario.ubicacion}}</td>
-        <td>{{usuario.fechaNacimiento | date : "dd/mm/yyyy" }}</td>
+        <td>{{usuario.fechaNacimiento | date}}</td>
         <td>{{usuario.edad}}</td>
         <td>{{usuario.genero}}</td>
         <td>{{usuario.nombreUsuario}}</td>

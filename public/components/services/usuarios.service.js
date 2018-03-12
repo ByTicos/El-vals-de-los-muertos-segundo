@@ -27,7 +27,8 @@
       addFiesta: _addFiesta,
       addRetoques: _addRetoques,
       eliminarUsuario: _eliminarUsuario,
-      activarUsuario: _activarUsuario
+      activarUsuario: _activarUsuario,
+      actualizarUsuario:_actualizarUsuario
     }
     return publicAPI;
 
@@ -150,6 +151,17 @@ function _getAllMuertos(){
   }
   return listaMuertos;
 }
+    function _actualizarUsuario(pUsuario) {
+      let listaUsuarios = _getUsuarios();
+
+      for (let i = 0; i < listaUsuarios.length; i++) {
+        if (pUsuario.cedula == listaUsuarios[i].cedula){
+          listaUsuarios[i] = pUsuario;
+        }
+      }
+      actualizarLocal(listaUsuarios);
+    }
+
  function actualizarLocal(plistaActualizada) {
      localStorage.setItem('usuariosLS', JSON.stringify(plistaActualizada));
    }
